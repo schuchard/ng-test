@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../order-service.service';
 
 @Component({
   selector: 'app-taco-order',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TacoOrderComponent implements OnInit {
   count = 0;
-  constructor() {}
+  orderStatus = '';
+
+  constructor(private orderService: OrderService) {}
 
   ngOnInit() {}
 
@@ -21,5 +24,9 @@ export class TacoOrderComponent implements OnInit {
     } else {
       this.count -= 1;
     }
+  }
+
+  submit() {
+    this.orderStatus = this.orderService.placeOrder(this.count);
   }
 }

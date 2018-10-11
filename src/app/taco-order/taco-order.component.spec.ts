@@ -1,15 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TacoOrderComponent } from './taco-order.component';
-import { StubOrderDisplayComponent } from '../../test/stubs';
+import { StubOrderDisplayComponent, MockOrderService } from '../../test/stubs';
+import { OrderService } from '../order-service.service';
 
 describe('TacoOrderComponent', () => {
   let component: TacoOrderComponent;
   let fixture: ComponentFixture<TacoOrderComponent>;
+  let orderService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TacoOrderComponent, StubOrderDisplayComponent],
+      providers: [{ provide: OrderService, useValue: MockOrderService() }],
     }).compileComponents();
   }));
 
@@ -17,6 +20,7 @@ describe('TacoOrderComponent', () => {
     fixture = TestBed.createComponent(TacoOrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    orderService = TestBed.get(OrderService);
   });
 
   it('should create', () => {
@@ -52,6 +56,21 @@ describe('TacoOrderComponent', () => {
       component.remove();
 
       expect(component.count).toBe(0);
+    });
+  });
+
+  describe('#submit', () => {
+    it('should set the orderStatus', () => {
+      const mockOrderReturn = 'mock return order';
+      orderService.placeOrder.mockReturnValue(mockOrderReturn);
+
+      expect(component.orderStatus).toBe('');
+
+      component.count = 2;
+      component.submit();
+
+      expect(orderService.placeOrder).toHaveBeenCalledWith(2);
+      expect(component.orderStatus).toBe(mockOrderReturn);
     });
   });
 });

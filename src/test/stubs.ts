@@ -11,3 +11,9 @@ export class StubOrderDisplayComponent {
   @Input()
   type;
 }
+
+export const MockOrderService = () => {
+  return {
+    placeOrder: jest.fn(),
+  };
+};
