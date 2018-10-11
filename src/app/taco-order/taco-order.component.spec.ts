@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TacoOrderComponent } from './taco-order.component';
-import { StubOrderDisplayComponent, MockOrderService } from '../../test/stubs';
 import { OrderService } from '../order-service.service';
+import { StubOrderDisplayComponent, MockOrderService } from '../../test-stubs';
 
 describe('TacoOrderComponent', () => {
   let component: TacoOrderComponent;
