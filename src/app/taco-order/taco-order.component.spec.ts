@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TacoOrderComponent } from './taco-order.component';
+import { StubOrderDisplayComponent } from '../../test/stubs';
 
 describe('TacoOrderComponent', () => {
   let component: TacoOrderComponent;
@@ -8,7 +9,7 @@ describe('TacoOrderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TacoOrderComponent ]
+      declarations: [ TacoOrderComponent, StubOrderDisplayComponent ]
     })
     .compileComponents();
   }));
