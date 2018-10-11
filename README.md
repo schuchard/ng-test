@@ -1,5 +1,19 @@
 # NgTestDemo
 
+## Integration tests
+
+Both the Taco and Pizza components use the `order-display` component and test that the DOM is updated correctly for each component.
+
+- [taco order - int.spec.ts](src/app/taco-order/taco-order.component.int.spec.ts)
+- [pizza order - int.spec.ts](src/app/pizza-order/pizza-order.component.int.spec.ts)
+
+## Unit test
+
+- [taco order - spec.ts](src/app/taco-order/taco-order.component.spec.ts) - contains a service mock
+- [pizza order - spec.ts](src/app/pizza-order/pizza-order.component.spec.ts)
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
 ## Development server
