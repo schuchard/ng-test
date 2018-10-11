@@ -10,4 +10,6 @@ a:hover {
 
 a.router-link-active {
   color: blue;
+  text-decoration: underline;
+  font-weight: bold;
 }
